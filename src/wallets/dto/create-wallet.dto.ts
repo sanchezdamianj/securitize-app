@@ -1,7 +1,11 @@
-import { IsOptional, IsPositive, IsString } from 'class-validator';
+import { IsBoolean, IsOptional, IsPositive, IsString } from 'class-validator';
 
 
 export class CreateWalletDto {
+    @IsOptional()
+    @IsString()
+    address: string;
+
     @IsString()
     name?: string;
 
@@ -9,7 +13,11 @@ export class CreateWalletDto {
     @IsPositive()
     value?: number;
 
+
     @IsOptional()
-    @IsString()
-    address?: string;
+    firstTransactionDate?:Date;
+
+    @IsOptional()
+    @IsBoolean()
+    isFavorite?:boolean;
 }

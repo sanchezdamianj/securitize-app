@@ -6,31 +6,31 @@ import { Wallets } from './entities/wallet.entity';
 import { Repository } from 'typeorm';
 import {ethers} from 'ethers';
 
-
-
 @Injectable()
 export class WalletsService {
   constructor( 
     @InjectRepository(Wallets) 
     private readonly walletRepository: Repository<Wallets>
   ){}
-  
+
+
+
   async create(createWalletDto: CreateWalletDto) {
     const privateKey = ethers.Wallet.createRandom().privateKey;
     const wallet = this.walletRepository.create(createWalletDto);
-    
     const wallletsAddress =  new ethers.Wallet(privateKey);
     const walletToSave = {...wallet, address: wallletsAddress.address }
     const walletRepository = await this.walletRepository.save(walletToSave);
+
     return walletRepository
   }
-
 
   async findAll() {
     return await this.walletRepository.find();
   }
 
   async findOne(id: number) {
+    console.log(this.walletRepository.findOneBy({id}))
     return await this.walletRepository.findOneBy({id});
   }
 
@@ -47,7 +47,7 @@ export class WalletsService {
     try{
       if(id) await this.walletRepository.softDelete({id});
     }catch(e){
-      throw new BadRequestException('Cat not found');
+      throw new BadRequestException('Wallet not found');
     }
   }
 }

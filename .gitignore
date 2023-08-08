@@ -2,6 +2,9 @@
 /dist
 /node_modules
 mysql
+# local env files
+.env
+.env*.local
 # Logs
 logs
 *.log

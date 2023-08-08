@@ -24,11 +24,11 @@ export class WalletsController {
 
   @Patch(':id')
   update(@Param('id') id: number, @Body() updateWalletDto: UpdateWalletDto) {
-    return this.walletsService.update(+id, updateWalletDto);
+    return this.walletsService.update(id, updateWalletDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: number) {
-    return this.walletsService.remove(+id);
+    return this.walletsService.remove(id);
   }
 }
