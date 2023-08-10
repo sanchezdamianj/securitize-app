@@ -1,7 +1,10 @@
-import { Module } from '@nestjs/common';
+import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
+import { WhitelistMiddleware } from './middlewares/whitelist.middleware';
 import { WalletsModule } from './wallets/wallets.module';
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { ConfigModule } from '@nestjs/config';
+import { ApiDataModule } from './apiConfig/api-etherscan.module';
+import { ExchangeRateModule } from './exchange-rate/exchange-rate.module';
 
 @Module({
   imports: [
@@ -19,9 +22,15 @@ import { ConfigModule } from '@nestjs/config';
       synchronize: true,
     
     }),
-    WalletsModule
+    WalletsModule,
+    ExchangeRateModule,
+    ApiDataModule
 ],
   controllers: [],
   providers: [],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(WhitelistMiddleware).forRoutes('*');
+  }
+}

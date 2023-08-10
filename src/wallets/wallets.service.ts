@@ -4,7 +4,6 @@ import { UpdateWalletDto } from './dto/update-wallet.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Wallets } from './entities/wallet.entity';
 import { Repository } from 'typeorm';
-import {ethers} from 'ethers';
 
 @Injectable()
 export class WalletsService {
@@ -16,13 +15,13 @@ export class WalletsService {
 
 
   async create(createWalletDto: CreateWalletDto) {
-    const privateKey = ethers.Wallet.createRandom().privateKey;
-    const wallet = this.walletRepository.create(createWalletDto);
-    const wallletsAddress =  new ethers.Wallet(privateKey);
-    const walletToSave = {...wallet, address: wallletsAddress.address }
-    const walletRepository = await this.walletRepository.save(walletToSave);
-
-    return walletRepository
+    try{
+      const walletToSave = this.walletRepository.create(createWalletDto);
+      const walletRepository = await this.walletRepository.save(walletToSave);
+      return walletRepository
+    }catch(e){
+      throw new BadRequestException('Wallet already exists');
+    }
   }
 
   async findAll() {
@@ -30,7 +29,6 @@ export class WalletsService {
   }
 
   async findOne(id: number) {
-    console.log(this.walletRepository.findOneBy({id}))
     return await this.walletRepository.findOneBy({id});
   }
 

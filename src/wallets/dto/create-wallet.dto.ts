@@ -6,18 +6,11 @@ export class CreateWalletDto {
     @IsString()
     address: string;
 
-    @IsString()
-    name?: string;
-
-    @IsOptional()
-    @IsPositive()
-    value?: number;
-
-
-    @IsOptional()
-    firstTransactionDate?:Date;
-
     @IsOptional()
     @IsBoolean()
     isFavorite?:boolean;
+
+    @IsOptional()
+    deletedAt?:Date;
+
 }

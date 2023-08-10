@@ -4,17 +4,11 @@ export class Wallets {
     @Column({primary: true, generated:true})
     id: number;
 
-    @Column({unique:true,default: ""})
+    @Column({unique:true})
     address: string;
 
     @Column({default: false})
     isFavorite: boolean;
-
-    @Column()
-    name: string;
-
-    @Column({type: "timestamp", default: null})
-    firstTransactionDate: Date;
 
     @DeleteDateColumn()
     deletedAt: Date;
