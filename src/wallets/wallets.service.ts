@@ -13,15 +13,12 @@ export class WalletsService {
   ){}
 
 
-
   async create(createWalletDto: CreateWalletDto) {
-    try{
-      const walletToSave = this.walletRepository.create(createWalletDto);
-      const walletRepository = await this.walletRepository.save(walletToSave);
-      return walletRepository
-    }catch(e){
-      throw new BadRequestException('Wallet already exists');
-    }
+      if(!!this.findOne(+(createWalletDto.address))){
+        const walletToSave = this.walletRepository.create(createWalletDto);
+        const walletRepository = await this.walletRepository.save(walletToSave);
+        return walletRepository
+      }
   }
 
   async findAll() {

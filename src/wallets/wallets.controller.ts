@@ -10,8 +10,8 @@ export class WalletsController {
 
   @Put()
   create(@Body() createWalletDto: CreateWalletDto) {
-    return this.walletsService.create(createWalletDto);
-  }
+      return this.walletsService.create(createWalletDto);
+    }
 
   @Get()
   findAll() {
