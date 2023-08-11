@@ -23,14 +23,15 @@ export class WalletsController {
     return this.apiService.getWalletData(address);
   }
 
+  //quizas aca puedo traerme por id o address el value de isFavorite para mostrarlo en el front
   @Get('byId/:id')
   findOne(@Param('id') id: number) {
     return this.walletsService.findOne(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: number, @Body() updateWalletDto: UpdateWalletDto) {
-    return this.walletsService.update(id, updateWalletDto);
+  update(@Param('id') id: string, @Body() updateWalletDto: UpdateWalletDto) {
+    return this.walletsService.update(+id, updateWalletDto);
   }
 
   @Delete(':id')
