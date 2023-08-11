@@ -2,9 +2,11 @@
 /dist
 /node_modules
 mysql
+*env
 # local env files
-.env
-.env*.local
+/securitize-app/src/.env
+# .env*.local
+
 # Logs
 logs
 *.log
