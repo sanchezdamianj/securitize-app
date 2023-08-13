@@ -3,7 +3,7 @@ import { Request, Response, NextFunction } from 'express';
 
 @Injectable()
 export class WhitelistMiddleware implements NestMiddleware {
-  private readonly allowedOrigins = ['http://localhost:5173', 'http://127.0.0.1', 'http://localhost:3000'];
+  private readonly allowedOrigins = ['http://localhost:5173', 'http://127.0.0.1','http://127.0.0.1:5173', 'http://localhost'];
 
   use(req: Request, res: Response, next: NextFunction) {
     const origin = req.headers.origin as string;

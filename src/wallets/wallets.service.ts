@@ -29,9 +29,9 @@ export class WalletsService {
     return await this.walletRepository.findOneBy({id});
   }
 
-  async update(id: number, updateWalletDto: UpdateWalletDto) {
+  async update(address: string, updateWalletDto: UpdateWalletDto) {
     try{
-       return await this.walletRepository.update(id,updateWalletDto)
+       return await this.walletRepository.update(address,updateWalletDto)
 
     } catch(e){
       throw new BadRequestException('Wallet not found');
