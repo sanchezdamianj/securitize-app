@@ -15,14 +15,18 @@ export class WalletsService {
 
 
   async create(createWalletDto: CreateWalletDto) {
-      if(this.findOne((createWalletDto.address))){
+      const walletFoundInDB = await this.walletRepository.find()
+      const walletAddress = walletFoundInDB.filter(wallet => wallet.address === createWalletDto.address)
+      console.log('wa',walletAddress)
+      if(walletFoundInDB){ 
         const walletToSave = this.walletRepository.create(createWalletDto);
         const walletRepository = await this.walletRepository.save(walletToSave);
         return walletRepository
       } else {
-        const walletDB = await this.findOne(createWalletDto.address);
-        const walletToUpdate = this.update(walletDB.address,createWalletDto);
-        return walletToUpdate
+        // const walletDB = await this.findOne(createWalletDto.address);
+        console.log('dounf in DB',walletFoundInDB)
+   
+        return walletFoundInDB
       }
   }
 
@@ -36,8 +40,8 @@ export class WalletsService {
 
   async update(address: string, updateWalletDto: UpdateWalletDto) {
     try{
-      console.log(address)
-       return await this.walletRepository.update(address,updateWalletDto)
+      const walletFavId = await this.findOne(address)
+      return await this.walletRepository.update(walletFavId.id,updateWalletDto)
 
     } catch(e){
       throw new BadRequestException('Wallet not found');
