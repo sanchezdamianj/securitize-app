@@ -13,11 +13,11 @@ import { ExchangeRateModule } from './exchange-rate/exchange-rate.module';
     }),
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
+      host: process.env.DB_HOST,
       port: 3307,
-      username: 'djs',
-      password: 'root',
-      database: 'wallet_db',
+      username: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_NAME,
       autoLoadEntities: true,
       synchronize: true,
     
