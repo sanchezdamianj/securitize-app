@@ -4,7 +4,7 @@ export class Wallets {
     @Column({primary: true, generated:true})
     id: number;
 
-    @Column({unique:true})
+    @Column()
     address: string;
 
     @Column({default: false})

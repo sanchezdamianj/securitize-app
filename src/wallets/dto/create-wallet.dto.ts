@@ -2,7 +2,7 @@ import { IsBoolean, IsOptional, IsPositive, IsString } from 'class-validator';
 
 
 export class CreateWalletDto {
-    @IsOptional()
+
     @IsString()
     address: string;
 

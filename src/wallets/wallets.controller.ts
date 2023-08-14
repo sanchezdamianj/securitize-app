@@ -23,14 +23,13 @@ export class WalletsController {
     return this.apiService.getWalletData(address);
   }
 
-  @Get('byId/:id')
-  findOne(@Param('id') id: number) {
-    return this.walletsService.findOne(id);
-  }
-
   @Patch(':address')
-  update(@Param('address') address: string, @Body() updateWalletDto: UpdateWalletDto) {
-    return this.walletsService.update(address, updateWalletDto);
+  update(@Param('address') address: string, @Body() UpdateWalletDto: UpdateWalletDto) {
+    return this.walletsService.update(address,UpdateWalletDto);
+  }
+  @Get(':address')
+  findOne(@Param('address') address: string) {
+    return this.walletsService.findOne(address);
   }
 
   @Delete(':id')
