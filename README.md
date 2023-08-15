@@ -61,7 +61,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 Using [git](http://git.io/) to the versioned. All Versions availables, look at [tags in the repository](https://github.com/sanchezdamianj/securitize-app).
 
 ## Author ✒️
-* **Damian Javier Sanchez** - *Frontend Proyect* - [sanchezdamianj](https://github.com/sanchezdamianj)
+* **Damian Javier Sanchez** - *Backend Proyect* - [sanchezdamianj](https://github.com/sanchezdamianj)
 ## Skills to create this project ✒️
 [![My Skills](https://skills.thijs.gg/icons?i=js,html,css,react,typescript,tailwind,bootstrap,cypress,jest,node,express)](https://skills.thijs.gg)
 
