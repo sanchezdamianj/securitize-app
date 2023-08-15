@@ -31,15 +31,18 @@
 
 ### Pre-requisites 📋
 
-You have to install Nest JS, pnpm && Typescript.
+You have to install Nest JS, pnpm, docker & Typescript.
 
 The followings websites to get started:
 - https://nestjs.com/
 - https://pnpm.io/es/
+- https://www.docker.com/
 
 ## Deployment 📦
 
 If you want to run this app, you can open a terminal, and write: git clone https://github.com/sanchezdamianj/securitize-app.git
+
+Complete your .env using .envExample template, and then create an image in docker running docker-compose up -d.
 
 After that, write pnpm i in your terminal.
 ## Available Scripts
