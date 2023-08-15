@@ -26,48 +26,49 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Installation
+## Get started with this application 🚀
+![gif](securitize.gif)
 
-```bash
-$ yarn install
-```
+### Pre-requisites 📋
 
-## Running the app
+You have to install Nest JS, pnpm && Typescript.
 
-```bash
-# development
-$ yarn run start
+The followings websites to get started:
+- https://nestjs.com/
+- https://pnpm.io/es/
 
-# watch mode
-$ yarn run start:dev
+## Deployment 📦
 
-# production mode
-$ yarn run start:prod
-```
+If you want to run this app, you can open a terminal, and write: git clone https://github.com/sanchezdamianj/securitize-app.git
 
-## Test
+After that, write pnpm i in your terminal.
+## Available Scripts
 
-```bash
-# unit tests
-$ yarn run test
+In the project directory, you can run:
+### `pnpm dev`
+    -   Inside of src folder, open a terminal
+    -   This server runs in PORT 3000
+    -   Run the following command
+    -   pnpm start:dev
 
-# e2e tests
-$ yarn run test:e2e
+* Disclaimer: you can run the app using npm too.
 
-# test coverage
-$ yarn run test:cov
-```
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-## Support
+## Versioned 📌
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Using [git](http://git.io/) to the versioned. All Versions availables, look at [tags in the repository](https://github.com/sanchezdamianj/securitize-app).
 
-## Stay in touch
+## Author ✒️
+* **Damian Javier Sanchez** - *Frontend Proyect* - [sanchezdamianj](https://github.com/sanchezdamianj)
+## Skills to create this project ✒️
+[![My Skills](https://skills.thijs.gg/icons?i=js,html,css,react,typescript,tailwind,bootstrap,cypress,jest,node,express)](https://skills.thijs.gg)
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## Licencia 📄
 
-## License
+This project is property of Damian Javier Sanchez
 
-Nest is [MIT licensed](LICENSE).
+---
+⌨️ with ❤️ by [sanchezdamianj](https://github.com/sanchezdamianj/securitize-app) 😊
+
